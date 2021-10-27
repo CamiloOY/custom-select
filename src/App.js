@@ -108,7 +108,6 @@ function App() {
 			</CustomMultiSelect> */}
 
 			{/* Context method */}
-			{/* Selectall doesnt seem to be possible with the context method */}
 			<CustomSelect>
 				<SelectOption optionID={0}>
 					{({isActive, setActive}) => (
@@ -127,11 +126,6 @@ function App() {
 				</SelectOption>
 			</CustomSelect>
 			<CustomMultiSelect>
-				<SelectAll>
-					{({selectAll}) => (
-						<button onClick={selectAll}>Select all</button>
-					)}
-				</SelectAll>
 				<DeselectAll>
 					{({deselectAll}) => (
 						<button onClick={deselectAll}>Deselect all</button>
@@ -156,11 +150,6 @@ function App() {
 				{/* </div> */}
 			</CustomMultiSelect>
 			<CustomMultiSelect limit={2}>
-				<SelectAll>
-					{({selectAll}) => (
-						<button onClick={selectAll}>Select all</button>
-					)}
-				</SelectAll>
 				<DeselectAll>
 					{({deselectAll}) => (
 						<button onClick={deselectAll}>Deselect all</button>

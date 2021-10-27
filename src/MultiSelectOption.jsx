@@ -1,6 +1,6 @@
 import { MultiSelectContext } from "./CustomMultiSelect";
 
-export default function SelectOption(props) {
+export default function MultiSelectOption(props) {
 	return (
 		<MultiSelectContext.Consumer>
 			{({isActive, toggleActive}) => {

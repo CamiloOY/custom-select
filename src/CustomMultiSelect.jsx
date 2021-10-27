@@ -88,7 +88,7 @@ class CustomMultiSelect extends React.Component {
 
 		// Context method
 		return (
-			<MultiSelectContext.Provider value={{isActive: this.isActive, toggleActive: this.toggleActive, selectAll: this.selectAll, deselectAll: this.deselectAll}}>
+			<MultiSelectContext.Provider value={{isActive: this.isActive, toggleActive: this.toggleActive, deselectAll: this.deselectAll}}>
 				{this.props.children}
 			</MultiSelectContext.Provider>
 		);
