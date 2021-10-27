@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# Custom Select
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Method
+There are two different ways of implementing this functionality:
+1. cloneElement
+2. Context API
 
-## Available Scripts
+The first method uses React.cloneElement to pass the relevant props (isActive and setActive) to a child Option component, which then exposes isActive and setActive to its children via a render prop. The advantage of this method is that when used with CustomMultiSelect it allows for a select/deselect all button, since the parent element has access to its children. The disadvantage is that Option components must be direct children of the CustomSelect/CustomMultiSelect, so it isn't possible to wrap them in any other elements for styling purposes etc.
 
-In the project directory, you can run:
+The second method uses React's Context API to expose the props to the options, which allows for greater flexibility as SelectOptions don't have to be direct children of the CustomSelect. The downside to this is that select/deselect all aren't possible with the CustomMultiSelect, as the component is only aware of the children that are active.
 
-### `npm start`
+## Components
+### CustomSelect
+The parent class for elements to be selected. Only allows one option to be active at a time.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### CustomMultiSelect
+Similar to CustomSelect, but allows for multiple active elements.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Option
+The wrapper for select options when using the cloneElement method.
 
-### `npm test`
+### SelectOption/MultiSelectOption
+The wrappers for selectable items when using the Context API method.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### SelectAll/DeselectAll
+Components used to expose select all and deselect all functionality to their children.
